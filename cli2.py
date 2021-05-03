@@ -60,8 +60,6 @@ class Server:
         self.cidr = cidr
         self.port = port
         self.public_ip = public_ip
-        # Check if file exists
-        print("Generating...")
         self.generate_server_config(self.path, interface)
 
 def main():
@@ -81,6 +79,8 @@ def main():
 
         if new_client == "q":
             break
+
+    print("Generating...")
 
     server.save_config()
 
