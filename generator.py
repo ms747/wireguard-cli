@@ -25,8 +25,7 @@ def server_config(server):
 def client_config(server):
     client_configs = []
     for client in server['clients']:
-        output = f"# Config for {client['name']}\n"\
-                 f"[Interface]\n" \
+        output = f"[Interface]\n" \
                  f"Address = {client['cidr']}\n"\
                  f"PrivateKey = {client['private_key']}\n"\
                  f"DNS = 1.1.1.1\n"\
@@ -52,7 +51,7 @@ def main():
         generated_clients_config = client_config(data)
         for config in generated_clients_config:
             # Display QR Code
-            out = subprocess.run(["qr", config])
+            out = subprocess.run(["qrencode", "-t", "utf8", config])
             print(config)
 
 if __name__ == "__main__":

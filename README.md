@@ -1,2 +1,2 @@
 # Dependencies
-qr (sudo apt install python3-qrcode)
+qrencode (sudo apt install qrencode)
