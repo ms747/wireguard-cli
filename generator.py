@@ -51,6 +51,7 @@ def main():
         # Create Clients Config
         generated_clients_config = client_config(data)
         for config in generated_clients_config:
+            # Display QR Code
             out = subprocess.run(["qr", config])
             print(config)
 
