@@ -1,0 +1,22 @@
+{
+    "name": "wg0",
+    "public_ip": "140.238.247.131",
+    "private_key": "SIGg4+sjOqcnb94+llZveHVkh1Zu8nMa0ATK9vqq1VA=",
+    "public_key": "03xAlcfkD8tpMm1+PMe4m7YUirLtjOLitfHFLfghW00=",
+    "cidr": "10.80.90.1/24",
+    "port": "51820",
+    "clients": [
+        {
+            "name": "ms-1",
+            "private_key": "YKd++R+ByM9lc5cssr1gd+ameZd9rj3I0pAAHSeSJH0=",
+            "public_key": "TZTXaIyl+PvFtGMcfk40Qj0IZRM1bEvzRhBvHrqInTs=",
+            "cidr": "10.80.90.2/32"
+        },
+        {
+            "name": "ms-2",
+            "private_key": "AD5rBbLacx6P1jsRNoRXNYuZi8am/U5AICdChPmZKWQ=",
+            "public_key": "H+6/A6E3x0yOI9wgzK/FQZhNRtoZM6DOG07+Mo5axRc=",
+            "cidr": "10.80.90.3/32"
+        }
+    ]
+}
