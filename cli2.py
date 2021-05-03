@@ -13,7 +13,7 @@ class Client:
         self.name        = name
         self.private_key = private_key
         self.public_key  = public_key
-        self.cidr          = cidr
+        self.cidr        = cidr
 
 class Server:
     # Server variables
