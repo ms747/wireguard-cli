@@ -6,7 +6,7 @@ class Client:
     name        = None
     private_key = None
     public_key  = None
-    cidr          = None
+    cidr        = None
 
     # Client Constructor
     def __init__(self, name, private_key, public_key, cidr):
@@ -44,13 +44,13 @@ class Server:
 
     # Save the config
     def save_config(self):
-        server = { "name": self.name,
-                   "public_ip": self.public_ip,
+        server = { "name":        self.name,
+                   "public_ip":   self.public_ip,
                    "private_key": self.private_key,
-                   "public_key": self.public_key,
-                   "cidr": self.cidr,
-                   "port": self.port,
-                   "clients": self.clients }
+                   "public_key":  self.public_key,
+                   "cidr":        self.cidr,
+                   "port":        self.port,
+                   "clients":     self.clients }
         with open(self.path, "w") as config:
           json.dump(server, config, indent=4)
 
@@ -68,8 +68,8 @@ def main():
     print("WG CLI 0.1")
     public_ip = input("Enter Public IP : ")
     interface = input("Enter interface name : ")
-    cidr = input("Enter interface cidr (e.g ip/netmask) : ")
-    port = input("Enter port : ")
+    cidr      = input("Enter interface cidr (e.g ip/netmask) : ")
+    port      = input("Enter port : ")
 
     server = Server(public_ip, cidr, port, interface, f"{interface}-config.json")
 
