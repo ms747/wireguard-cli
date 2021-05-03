@@ -31,6 +31,8 @@ def client_config(server):
                  f"DNS = 1.1.1.1\n"\
                  f"\n[Peer]\n"\
                  f"PublicKey = {server['public_key']}\n"\
+                 # TODO: Proper Input is `AllowedIPs = 10.80.91.0/24`
+                 # This allows all the ips from the subnet to access this device
                  f"AllowedIPs = {client['cidr']}\n"\
                  f"Endpoint = {server['public_ip']}:{server['port']}\n"\
                  f"PersistentKeepalive = 15\n"

@@ -1,3 +1,5 @@
+# TODO: Get default route device name
+
 import json
 import subprocess
 
@@ -64,21 +66,24 @@ class Server:
 
 def main():
     print("WG CLI 0.1")
+    interface = input("Enter Customer Name : ")
+    # "192.168.1.10/24"
     public_ip = input("Enter Public IP : ")
-    interface = input("Enter interface name : ")
-    cidr      = input("Enter interface cidr (e.g ip/netmask) : ")
-    port      = input("Enter port : ")
+    cidr      = input("Enter Interface CIDR (e.g IP/Netmask) : ")
+    port      = input("Enter Port : ")
+    no_peer   = int(input("Enter Peer Count : "))
 
     server = Server(public_ip, cidr, port, interface, f"{interface}-config.json")
 
-    while True:
-        client_name = input("Enter client name : ")
-        client_cidr = input("Enter client cidr : ")
+    for i in range(no_peer):
+        client_name = f"{interface}-{i + 1}"
+        parsed_cidr = cidr.split("/")[0].split(".")
+        client_cidr = f"{parsed_cidr[0]}.{parsed_cidr[1]}.{parsed_cidr[2]}.{int(parsed_cidr[3]) + i + 1}/32"
         server.add_client(client_name, client_cidr)
-        new_client  = input("Press q to quit : ")
+        #new_client  = input("Press q to quit : ")
 
-        if new_client == "q":
-            break
+        #if new_client == "q":
+        #    break
 
     print("Generating...")
 
